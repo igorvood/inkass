@@ -19,9 +19,9 @@ public class SolutionService {
 
         PointDto bank = points.stream().filter(PointDto::isBase).findFirst().orElse(null);
 
-        final Map<PointDto, Pair<Double, Double>> wayOtherPoints = bank.getWayOtherPoints();
+//        final Map<PointDto, Pair<Double, Double>> wayOtherPoints = bank.getWayOtherPoints();
 
-        addNewLvl(wayOtherPoints, res);
+//        addNewLvl(wayOtherPoints, res);
 
         return res;
     }
