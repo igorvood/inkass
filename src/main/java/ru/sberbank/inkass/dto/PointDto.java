@@ -1,7 +1,9 @@
 package ru.sberbank.inkass.dto;
 
+
 import lombok.Builder;
 import lombok.Data;
+import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.Map;
 import java.util.Objects;
@@ -14,8 +16,8 @@ public class PointDto {
     private final double timeInPoint;
     //    сумма инкассации
     private final double sum;
-    //    расстояния до других точек инкассации
-    private Map<PointDto, Double> wayOtherPoints;
+    //    расстояния до других точек инкассации, в паре первыое число - расстояние, 2-уровень ферромона
+    private Map<PointDto, Pair<Double, Double>> wayOtherPoints;
     // признак того что точка является банком куда нужно все отвезти
     private final boolean isBase;
 

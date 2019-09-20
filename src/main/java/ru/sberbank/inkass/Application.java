@@ -11,9 +11,14 @@ import java.util.Set;
 
 public class Application {
 
+    public static int MAX_SUM_IN_POINT = 10000;
+    public static int MAX_TIME_IN_POINT = 200;
+    public static int MAX_TIME_IN_WAY = 2000;
+
+
     public static void main(String[] args) {
         FillGraphService fillGraphService = new FillGraphServiceImpl();
-        final List<PointDto> fill = fillGraphService.fill(20);
+        final Set<PointDto> fill = fillGraphService.fill(20);
 
         //fill.forEach(q -> System.out.println(q.hashCode()));
 

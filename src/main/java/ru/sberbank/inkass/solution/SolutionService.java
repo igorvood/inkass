@@ -1,31 +1,32 @@
 package ru.sberbank.inkass.solution;
 
+import org.apache.commons.lang3.tuple.Pair;
 import ru.sberbank.inkass.dto.PointDto;
 
 import java.util.*;
 
 public class SolutionService {
 
-    private List<PointDto> points;
+    private HashSet<PointDto> points;
     private PointDto bank;
 
-    public SolutionService(List<PointDto> points) {
-        this.points = points;
+    public SolutionService(Set<PointDto> points) {
+        this.points = (HashSet<PointDto>) points;
     }
 
     public List<SolutionDto> getSolution(double lim){
         List<SolutionDto> res = new ArrayList<>();
 
-        PointDto bank = points.get(0);
+        PointDto bank = points.stream().filter(PointDto::isBase).findFirst().orElse(null);
 
-        Map<PointDto, Double> wayOtherPoints = bank.getWayOtherPoints();
+        final Map<PointDto, Pair<Double, Double>> wayOtherPoints = bank.getWayOtherPoints();
 
         addNewLvl(wayOtherPoints, res);
 
         return res;
     }
 
-    private void addNewLvl(Map<PointDto, Double> wayOtherPoints, List<SolutionDto> res) {
+    private void addNewLvl(Map<PointDto, Pair<Double, Double>> wayOtherPoints, List<SolutionDto> res) {
 
         //тут надо сделать, чтобы при превышении лимита последней точкой становился банк и этот путь завершался
         //этот метод еще не разрабатывался
