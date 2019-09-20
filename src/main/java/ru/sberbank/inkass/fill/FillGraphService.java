@@ -2,7 +2,6 @@ package ru.sberbank.inkass.fill;
 
 import ru.sberbank.inkass.dto.PointDto;
 
-import java.util.List;
 import java.util.Set;
 
 public interface FillGraphService {

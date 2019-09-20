@@ -10,7 +10,7 @@ public class Application {
 
     public static void main(String[] args) {
         FillGraphService fillGraphService = new FillGraphServiceImpl();
-        final Set<PointDto> fill = fillGraphService.fill(1000);
+        final Set<PointDto> fill = fillGraphService.fill(2000);
         fill.forEach(q -> System.out.println(q.hashCode()));
 
         System.out.println(fill);
