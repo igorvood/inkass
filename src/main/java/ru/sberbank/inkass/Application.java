@@ -1,13 +1,12 @@
 package ru.sberbank.inkass;
 
+import org.apache.commons.lang3.tuple.Pair;
 import ru.sberbank.inkass.dto.PointDto;
 import ru.sberbank.inkass.fill.FillGraphService;
 import ru.sberbank.inkass.fill.FillGraphServiceImpl;
-import ru.sberbank.inkass.solution.SolutionDto;
-import ru.sberbank.inkass.solution.SolutionService;
+import ru.sberbank.inkass.fill.WayInfoDto;
 
-import java.util.List;
-import java.util.Set;
+import java.util.Map;
 
 public class Application {
 
@@ -18,19 +17,10 @@ public class Application {
 
     public static void main(String[] args) {
         FillGraphService fillGraphService = new FillGraphServiceImpl();
-        final Set<PointDto> fill = fillGraphService.fill(20);
+        final Map<Pair<PointDto, PointDto>, WayInfoDto> fill = fillGraphService.fill(20);
 
-        //fill.forEach(q -> System.out.println(q.hashCode()));
+        fill.forEach((k, v) -> System.out.println(k + v.toString()));
+        System.out.println(fill.size());
 
-        System.out.println(fill);
-        SolutionService solutionService = new SolutionService(fill);
-
-        double lim = 5000;
-        //сет путей, который привозят максимально близкую к лимиту сумму обратно в банк.
-        // т е каждый элемент сета - один цикл проезда от базы до базы
-        List<SolutionDto> solutionSet = solutionService.getSolution(lim);
-
-        //выбор маршрута на следующий круг
-        SolutionDto optimalSolution = solutionService.getOptimalSolution();
     }
 }
