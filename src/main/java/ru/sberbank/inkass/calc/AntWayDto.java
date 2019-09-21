@@ -21,6 +21,8 @@ public class AntWayDto {
     private Long totalTime;
     private Long totalMoney;
     private Long moneyOnThisTrip;
+    private PointDto currentPoint;
+    private PointDto bankPoint;
     private List<PointDto> way;
     private Set<PointDto> notVisitedPoint;
     private Map<Pair<PointDto, PointDto>, WayInfoDto> roadMap;
@@ -31,9 +33,16 @@ public class AntWayDto {
         this.totalMoney = 0L;
         this.moneyOnThisTrip = 0L;
         this.way = new ArrayList<>();
+//        this.currentPoint =
         this.notVisitedPoint =
                 roadMap.keySet().stream()
                         .map(Pair::getKey)
+                        .peek(pointDto -> {
+                            if (pointDto.isBase()) {
+                                currentPoint = pointDto;
+                                bankPoint = pointDto;
+                            }
+                        })
                         .collect(Collectors.toSet());
         this.roadMap =
                 roadMap.entrySet().stream()
