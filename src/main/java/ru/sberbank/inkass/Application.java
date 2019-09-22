@@ -13,11 +13,10 @@ import ru.sberbank.inkass.fill.FillGraphService;
 import ru.sberbank.inkass.fill.FillGraphServiceImpl;
 import ru.sberbank.inkass.fill.WayInfoDto;
 
-import java.util.Date;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.IntStream;
 
-import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.*;
 
 @EnableIntegration
 @SpringBootApplication
@@ -25,20 +24,21 @@ public class Application {
 
     public static final Log LOGGER = LogFactory.getLog(Application.class);
 
-    public static final int WORKING_DAY_COUNT = 1_000;
-    public static final int ANT_COUNT = 500;
+    public static final int WORKING_DAY_COUNT = 2_000;
+    public static final int ANT_COUNT = 100;
     public static final double MAX_SUM_IN_POINT = 10_000;
     public static final double MAX_TIME_IN_POINT = 200;
     public static final double MAX_TIME_IN_WAY = 2_000;
     public static final double MAX_MONEY_IN_ANT = MAX_SUM_IN_POINT * 2;
     public static final double WORKING_DAY_LENGTH = 5_000;
+    public static final int GRAPH_SIZE = 200;
     static CalcChanceService calcChanceService = new CalcChanceServiceImpl();
 
 
     public static void main(String[] args) {
 
         FillGraphService fillGraphService = new FillGraphServiceImpl();
-        final Map<Pair<PointDto, PointDto>, WayInfoDto> fill = fillGraphService.fill(20);
+        final Map<Pair<PointDto, PointDto>, WayInfoDto> fill = fillGraphService.fill(GRAPH_SIZE);
 
 //        fill.forEach((k, v) -> System.out.println(k + v.toString()));
 //        System.out.println(fill.size());
@@ -49,11 +49,30 @@ public class Application {
 //        System.out.println(new Date() + "++++++++++++++++++++++++");
         IntStream.range(0, WORKING_DAY_COUNT)
                 .peek(value -> LOGGER.debug("Day num " + value))
-                .forEach(value -> IntStream.range(0, ANT_COUNT)
-                        .parallel()
-                        .mapToObj(i -> new AntWayDto(fill))
-                        .map(q -> calcChanceService.runOneAnt(q))
-                        .collect(toList()));
+                .forEach(value -> {
+                    final List<AntWayDto> antDayResult = IntStream.range(0, ANT_COUNT)
+                            .parallel()
+                            .mapToObj(i -> new AntWayDto(fill))
+                            .map(q -> calcChanceService.runOneAnt(q))
+                            .collect(toList());
+
+                    final Map<Pair<PointDto, PointDto>, DoubleSummaryStatistics> collect = antDayResult.parallelStream()
+                            .map(q -> Pair.of(q.getWay(), q.getTotalMoney()))
+                            .map(listDoublePair -> {
+                                final List<PointDto> way = listDoublePair.getLeft();
+                                List<Pair<Pair<PointDto, PointDto>, Double>> pairs = new ArrayList<>(way.size() - 1);
+                                for (int i = 0; i < way.size() - 1; i++) {
+                                    pairs.add(Pair.of(
+                                            Pair.of(way.get(i), way.get(i + 1)), listDoublePair.getRight()
+                                    ));
+                                }
+                                return pairs;
+                            })
+                            .flatMap(Collection::stream)
+                            .collect(groupingBy(Pair::getLeft, mapping(Pair::getRight, summarizingDouble(value1 -> value1))));
+
+
+                });
 /*
 
         final List<AntWayDto> collect = IntStream.range(0, ANT_COUNT)
