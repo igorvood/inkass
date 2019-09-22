@@ -13,8 +13,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.toMap;
-
 @Getter
 
 @ToString
@@ -52,13 +50,13 @@ public class AntWayDto {
                         .collect(Collectors.toSet());
         this.way = new ArrayList<>();
         this.way.add(currentPoint);
-        this.roadMap =
-                roadMap.entrySet().stream()
+        this.roadMap = roadMap;
+/*                roadMap.entrySet().stream()
                         .map(e -> Pair.of(
                                 e.getKey(),
                                 new WayInfoDto(e.getValue().getTimeInWay(),
                                         e.getValue().getPheromone())))
-                        .collect(toMap(Pair::getKey, Pair::getValue));
+                        .collect(toMap(Pair::getKey, Pair::getValue));*/
 
     }
 

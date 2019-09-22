@@ -3,6 +3,8 @@ package ru.sberbank.inkass.fill;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import static java.lang.Math.pow;
+
 @Data
 @AllArgsConstructor
 public class WayInfoDto {
@@ -15,4 +17,7 @@ public class WayInfoDto {
         return 1 / timeInWay;
     }
 
+    public double getPheromone() {
+        return pow(pheromone, 1);
+    }
 }

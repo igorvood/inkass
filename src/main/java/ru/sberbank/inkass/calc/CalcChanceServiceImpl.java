@@ -8,6 +8,7 @@ import ru.sberbank.inkass.fill.WayInfoDto;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.DoubleStream;
 
 import static com.sun.org.apache.xalan.internal.lib.ExsltMath.random;
 import static java.util.stream.Collectors.toMap;
@@ -78,7 +79,7 @@ public class CalcChanceServiceImpl implements CalcChanceService {
 
     private PointDto getNextPoint(Set<PointDto> pointDtos, AntWayDto antWayDto) {
 
-        final double[] sumForCalcChance = {0d};
+        double sumForCalcChance = 0d;
         final Map<Pair<PointDto, PointDto>, Double> possibleWays =
                 antWayDto.getRoadMap().entrySet().stream()
                         // поиск путей
@@ -87,15 +88,16 @@ public class CalcChanceServiceImpl implements CalcChanceService {
                         // расчет веса пути
                         .map(entryWay -> Pair.of(entryWay.getKey(), entryWay.getValue().getPheromone() * entryWay.getValue().getWeightWay()))
                         // пупутно суммирую все веса
-                        .peek(q -> sumForCalcChance[0] = sumForCalcChance[0] + q.getValue())
+//                        .peek(q -> sumForCalcChance[0] = sumForCalcChance[0] + q.getValue())
                         .collect(toMap(Map.Entry::getKey, Map.Entry::getValue));
+        sumForCalcChance = possibleWays.values().stream().flatMapToDouble(DoubleStream::of).sum();
 
         final double random = random();
         double current = 0;
         PointDto lastPoint = null;
         // цикл вычислений следущей точки
         for (Map.Entry<Pair<PointDto, PointDto>, Double> p : possibleWays.entrySet()) {
-            current = current + p.getValue() / sumForCalcChance[0];
+            current = current + p.getValue() / sumForCalcChance;
             if (current > random) {
                 return p.getKey().getRight();
             }

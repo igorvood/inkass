@@ -23,15 +23,17 @@ import static java.util.stream.Collectors.*;
 public class Application {
 
     public static final Log LOGGER = LogFactory.getLog(Application.class);
+    public static final int GRAPH_SIZE = 50;
 
-    public static final int WORKING_DAY_COUNT = 2_000;
-    public static final int ANT_COUNT = 100;
+    public static final int WORKING_DAY_COUNT = 1_000;
+
+    public static final int ANT_COUNT = GRAPH_SIZE * 1000;
+
     public static final double MAX_SUM_IN_POINT = 10_000;
     public static final double MAX_TIME_IN_POINT = 200;
     public static final double MAX_TIME_IN_WAY = 2_000;
     public static final double MAX_MONEY_IN_ANT = MAX_SUM_IN_POINT * 2;
     public static final double WORKING_DAY_LENGTH = 5_000;
-    public static final int GRAPH_SIZE = 200;
     static CalcChanceService calcChanceService = new CalcChanceServiceImpl();
 
 
@@ -54,6 +56,7 @@ public class Application {
                             .parallel()
                             .mapToObj(i -> new AntWayDto(fill))
                             .map(q -> calcChanceService.runOneAnt(q))
+
                             .collect(toList());
 
                     final Map<Pair<PointDto, PointDto>, DoubleSummaryStatistics> collect = antDayResult.parallelStream()
@@ -69,9 +72,31 @@ public class Application {
                                 return pairs;
                             })
                             .flatMap(Collection::stream)
-                            .collect(groupingBy(Pair::getLeft, mapping(Pair::getRight, summarizingDouble(value1 -> value1))));
 
+                            .collect(groupingBy(Pair::getLeft, mapping(Pair::getRight, summarizingDouble(value1 -> {
+                                return value1;
+                            }))));
+/*
+                    LOGGER.debug(collect.size());
+                    final Map<Pair<PointDto, PointDto>, List<Double>> collect2 = antDayResult.parallelStream()
+                            .map(q -> Pair.of(q.getWay(), q.getTotalMoney()))
+                            .map(listDoublePair -> {
+                                final List<PointDto> way = listDoublePair.getLeft();
+                                List<Pair<Pair<PointDto, PointDto>, Double>> pairs = new ArrayList<>(way.size() - 1);
+                                for (int i = 0; i < way.size() - 1; i++) {
+                                    pairs.add(Pair.of(
+                                            Pair.of(way.get(i), way.get(i + 1)), listDoublePair.getRight()
+                                    ));
+                                }
+                                return pairs;
+                            })
+                            .flatMap(Collection::stream)
 
+                            .collect(groupingBy(Pair::getLeft, mapping(Pair::getRight, toList())));
+                    LOGGER.debug(collect2.size());
+*/
+
+                    LOGGER.debug(collect.size());
                 });
 /*
 
