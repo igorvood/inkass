@@ -18,7 +18,7 @@ import static ru.sberbank.inkass.Application.WORKING_DAY_LENGTH;
 public class CalcChanceServiceImpl implements CalcChanceService {
 
     @Override
-    public AntWayDto calc(AntWayDto antWayDto) {
+    public AntWayDto runOneAnt(AntWayDto antWayDto) {
         PointDto nextPoint = null;
         do {
 //            System.out.println(nextPoint);

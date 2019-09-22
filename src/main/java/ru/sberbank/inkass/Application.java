@@ -52,18 +52,18 @@ public class Application {
                 .forEach(value -> IntStream.range(0, ANT_COUNT)
                         .parallel()
                         .mapToObj(i -> new AntWayDto(fill))
-                        .map(q -> calcChanceService.calc(q))
+                        .map(q -> calcChanceService.runOneAnt(q))
                         .collect(toList()));
 /*
 
         final List<AntWayDto> collect = IntStream.range(0, ANT_COUNT)
                 .parallel()
                 .mapToObj(i -> new AntWayDto(fill))
-                .map(q -> calcChanceService.calc(q))
+                .map(q -> calcChanceService.runOneAnt(q))
                 .collect(toList());
 */
 
-//        calcChanceService.calc(collect.get(0));
+//        calcChanceService.runOneAnt(collect.get(0));
         LOGGER.debug("++++++++++++++++++++++++" /*+ collect.size()*/);
         final long l = new Date().getTime() - timeBeg;
         LOGGER.debug("total time " + (double) l / 1000L + " time per 1000 ants " + l / (double) WORKING_DAY_COUNT / 1000L / ((double) ANT_COUNT / 1000L));
