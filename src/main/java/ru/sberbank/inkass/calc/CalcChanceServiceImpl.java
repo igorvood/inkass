@@ -21,7 +21,7 @@ public class CalcChanceServiceImpl implements CalcChanceService {
     public AntWayDto calc(AntWayDto antWayDto) {
         PointDto nextPoint = null;
         do {
-            System.out.println(nextPoint);
+//            System.out.println(nextPoint);
             final Set<PointDto> probablyPoint = getProbablyPoint(antWayDto);
             nextPoint = getNextPoint(probablyPoint, antWayDto);
 
