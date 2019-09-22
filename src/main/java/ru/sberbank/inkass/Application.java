@@ -25,7 +25,7 @@ public class Application {
     public static final Log LOGGER = LogFactory.getLog(Application.class);
     public static final int GRAPH_SIZE = 50;
 
-    public static final int WORKING_DAY_COUNT = 1_000;
+    public static final int WORKING_DAY_COUNT = 1_0;
 
     public static final int ANT_COUNT = GRAPH_SIZE * 1000;
 
