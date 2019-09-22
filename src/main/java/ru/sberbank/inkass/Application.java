@@ -23,9 +23,9 @@ import static java.util.stream.Collectors.*;
 public class Application {
 
     public static final Log LOGGER = LogFactory.getLog(Application.class);
-    public static final int GRAPH_SIZE = 50;
+    public static final int GRAPH_SIZE = 100;
 
-    public static final int WORKING_DAY_COUNT = 1_0;
+    public static final int WORKING_DAY_COUNT = 1_00;
 
     public static final int ANT_COUNT = GRAPH_SIZE * 1000;
 
@@ -52,7 +52,33 @@ public class Application {
         IntStream.range(0, WORKING_DAY_COUNT)
                 .peek(value -> LOGGER.debug("Day num " + value))
                 .forEach(value -> {
-                    final List<AntWayDto> antDayResult = IntStream.range(0, ANT_COUNT)
+
+                    final Map<Pair<PointDto, PointDto>, DoubleSummaryStatistics> collect = IntStream.range(0, ANT_COUNT)
+                            .parallel()
+                            .mapToObj(i -> new AntWayDto(fill))
+                            .map(q -> calcChanceService.runOneAnt(q))
+
+                            .map(q -> Pair.of(q.getWay(), q.getTotalMoney()))
+                            .map(listDoublePair -> {
+                                final List<PointDto> way = listDoublePair.getLeft();
+                                List<Pair<Pair<PointDto, PointDto>, Double>> pairs = new ArrayList<>(way.size() - 1);
+                                for (int i = 0; i < way.size() - 1; i++) {
+                                    pairs.add(Pair.of(
+                                            Pair.of(way.get(i), way.get(i + 1)), listDoublePair.getRight()
+                                    ));
+                                }
+                                return pairs;
+                            })
+                            .flatMap(Collection::stream)
+
+                            .collect(groupingBy(Pair::getLeft, mapping(Pair::getRight, summarizingDouble(value1 -> {
+                                return value1;
+                            }))));
+
+
+
+
+/*                    final List<AntWayDto> antDayResult = IntStream.range(0, ANT_COUNT)
                             .parallel()
                             .mapToObj(i -> new AntWayDto(fill))
                             .map(q -> calcChanceService.runOneAnt(q))
@@ -76,6 +102,7 @@ public class Application {
                             .collect(groupingBy(Pair::getLeft, mapping(Pair::getRight, summarizingDouble(value1 -> {
                                 return value1;
                             }))));
+                    */
 /*
                     LOGGER.debug(collect.size());
                     final Map<Pair<PointDto, PointDto>, List<Double>> collect2 = antDayResult.parallelStream()
