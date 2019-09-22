@@ -26,13 +26,13 @@ public class Application {
 
     public static final Log LOGGER = LogFactory.getLog(Application.class);
 
-    public static final int WORKING_DAY_COUNT = 100;
-    public static final int ANT_COUNT = 1;
-    public static final int MAX_SUM_IN_POINT = 10_000;
-    public static final int MAX_TIME_IN_POINT = 200;
-    public static final int MAX_TIME_IN_WAY = 2_000;
-    public static final int MAX_MONEY_IN_ANT = MAX_SUM_IN_POINT * 5;
-    public static final int WORKING_DAY_LENGTH = 20_000;
+    public static final double WORKING_DAY_COUNT = 100;
+    public static final int ANT_COUNT = 100;
+    public static final double MAX_SUM_IN_POINT = 10_000;
+    public static final double MAX_TIME_IN_POINT = 200;
+    public static final double MAX_TIME_IN_WAY = 2_000;
+    public static final double MAX_MONEY_IN_ANT = MAX_SUM_IN_POINT * 2;
+    public static final double WORKING_DAY_LENGTH = 5_000;
     static CalcChanceService calcChanceService = new CalcChanceServiceImpl();
 
 
@@ -47,10 +47,12 @@ public class Application {
         LOGGER.debug("++++++++++++++++++++++++");
 //        System.out.println(new Date() + "++++++++++++++++++++++++");
         final List<AntWayDto> collect = IntStream.range(0, ANT_COUNT)
-                .parallel()
+//                .parallel()
                 .mapToObj(i -> new AntWayDto(fill))
+                .map(q -> calcChanceService.calc(q))
                 .collect(toList());
-        calcChanceService.calc(collect.get(0));
+
+//        calcChanceService.calc(collect.get(0));
         LOGGER.debug("++++++++++++++++++++++++" + collect.size());
 
         LOGGER.debug("=====================");

@@ -1,7 +1,9 @@
 package ru.sberbank.inkass.calc;
 
 import org.apache.commons.lang3.tuple.Pair;
+import org.springframework.util.Assert;
 import ru.sberbank.inkass.dto.PointDto;
+import ru.sberbank.inkass.fill.WayInfoDto;
 
 import java.util.HashSet;
 import java.util.Map;
@@ -16,17 +18,36 @@ import static ru.sberbank.inkass.Application.WORKING_DAY_LENGTH;
 public class CalcChanceServiceImpl implements CalcChanceService {
 
     @Override
-    public void calc(AntWayDto antWayDto) {
-        final Set<PointDto> probablyPoint = getProbablyPoint(antWayDto);
-        final PointDto nextPoint = getNextPoint(probablyPoint, antWayDto);
-        registerPoint(antWayDto, nextPoint);
-        System.out.println(nextPoint);
+    public AntWayDto calc(AntWayDto antWayDto) {
+        PointDto nextPoint = null;
+        do {
+            System.out.println(nextPoint);
+            final Set<PointDto> probablyPoint = getProbablyPoint(antWayDto);
+            nextPoint = getNextPoint(probablyPoint, antWayDto);
+
+        } while (registerPoint(antWayDto, nextPoint));
+        return antWayDto;
+
     }
 
-    private void registerPoint(AntWayDto antWayDto, PointDto nextPoint) {
+    private boolean registerPoint(AntWayDto antWayDto, PointDto nextPoint) {
+        if (antWayDto.getCurrentPoint().equals(nextPoint))
+            return false;
+        final WayInfoDto wayInfoDto = antWayDto.getRoadMap().get(Pair.of(antWayDto.getCurrentPoint(), nextPoint));
+        final double moneyOnThisTrip = nextPoint.equals(antWayDto.getBankPoint()) ? 0 : (antWayDto.getMoneyOnThisTrip() + nextPoint.getSum());
+        antWayDto.setMoneyOnThisTrip(moneyOnThisTrip);
+        antWayDto.setTotalMoney(antWayDto.getTotalMoney() + nextPoint.getSum());
+        antWayDto.setTotalTime(antWayDto.getTotalTime() + wayInfoDto.getTimeInWay() + nextPoint.getTimeInPoint());
         antWayDto.getWay().add(nextPoint);
+        antWayDto.getNotVisitedPoint().remove(nextPoint);
+        Assert.isTrue(antWayDto.getMoneyOnThisTrip() < MAX_MONEY_IN_ANT, () -> "Max money in ant " + MAX_MONEY_IN_ANT + " but current " + antWayDto.getMoneyOnThisTrip());
+        if (antWayDto.getTotalTime() < WORKING_DAY_LENGTH)
+            Assert.isTrue(antWayDto.getTotalTime() < WORKING_DAY_LENGTH, () -> "Max working day for ant " + WORKING_DAY_LENGTH + " but current " + antWayDto.getTotalTime());
+        antWayDto.setCurrentPoint(nextPoint);
+        return true;
 
     }
+
 
     /**
      * @param antWayDto

@@ -2,7 +2,7 @@ package ru.sberbank.inkass.calc;
 
 public interface CalcChanceService {
 
-    void calc(AntWayDto antWayDto);
+    AntWayDto calc(AntWayDto antWayDto);
 
 
 }

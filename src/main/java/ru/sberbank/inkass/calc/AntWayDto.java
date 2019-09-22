@@ -1,6 +1,7 @@
 package ru.sberbank.inkass.calc;
 
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 import org.apache.commons.lang3.tuple.Pair;
 import ru.sberbank.inkass.dto.PointDto;
@@ -15,12 +16,17 @@ import java.util.stream.Collectors;
 import static java.util.stream.Collectors.toMap;
 
 @Getter
+
 @ToString
 public class AntWayDto {
 
-    private Long totalTime;
-    private Long totalMoney;
-    private Long moneyOnThisTrip;
+    @Setter
+    private double totalTime;
+    @Setter
+    private double totalMoney;
+    @Setter
+    private double moneyOnThisTrip;
+    @Setter
     private PointDto currentPoint;
     private PointDto bankPoint;
     private List<PointDto> way;
@@ -32,7 +38,6 @@ public class AntWayDto {
         this.totalTime = 0L;
         this.totalMoney = 0L;
         this.moneyOnThisTrip = 0L;
-        this.way = new ArrayList<>();
 //        this.currentPoint =
         this.notVisitedPoint =
                 roadMap.keySet().stream()
@@ -43,7 +48,10 @@ public class AntWayDto {
                                 bankPoint = pointDto;
                             }
                         })
+                        .filter(pointDto -> !pointDto.isBase())
                         .collect(Collectors.toSet());
+        this.way = new ArrayList<>();
+        this.way.add(currentPoint);
         this.roadMap =
                 roadMap.entrySet().stream()
                         .map(e -> Pair.of(
