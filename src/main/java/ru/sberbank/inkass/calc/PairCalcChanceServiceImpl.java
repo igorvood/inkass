@@ -22,7 +22,6 @@ public class PairCalcChanceServiceImpl implements CalcChanceService {
     public AntWayDto runOneAnt(AntWayDto antWayDto) {
         Pair<PointDto, PointDto> nextPoint = null;
         do {
-//            System.out.println(nextPoint);
             final Set<PointDto> probablyPoint = getProbablyPoint(antWayDto);
             nextPoint = getNextPoint(probablyPoint, antWayDto);
 
@@ -81,14 +80,14 @@ public class PairCalcChanceServiceImpl implements CalcChanceService {
         return pointDtos;
     }
 
-    private Pair<PointDto, PointDto> getNextPoint(Set<PointDto> pointDtos, AntWayDto antWayDto) {
+    private Pair<PointDto, PointDto> getNextPoint(Set<PointDto> probablyPoint, AntWayDto antWayDto) {
 
         double sumForCalcChance = 0d;
         final Map<Pair<PointDto, PointDto>, Double> possibleWays =
                 antWayDto.getRoadMap().entrySet().stream()
                         // поиск путей
                         .filter(pairWayInfoDto -> pairWayInfoDto.getKey().getLeft().equals(antWayDto.getCurrentPoint()) &&
-                                pointDtos.contains(pairWayInfoDto.getKey().getRight()))
+                                probablyPoint.contains(pairWayInfoDto.getKey().getRight()))
                         // расчет веса пути
                         .map(entryWay -> Pair.of(entryWay.getKey(), entryWay.getValue().getPheromone() * entryWay.getValue().getWeightWay()))
                         // пупутно суммирую все веса
