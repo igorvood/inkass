@@ -83,6 +83,17 @@ public class PairCalcChanceServiceImpl implements CalcChanceService {
     private Pair<PointDto, PointDto> getNextPoint(Set<PointDto> probablyPoint, AntWayDto antWayDto) {
 
         double sumForCalcChance = 0d;
+        final Map<Pair<PointDto, PointDto>, WayInfoDto> roadMap = antWayDto.getRoadMap();
+        final PointDto currentPoint = antWayDto.getCurrentPoint();
+
+        final Map<Pair<PointDto, PointDto>, Double> collect = probablyPoint.stream()
+                .map(nextPoint -> {
+                    final Pair<PointDto, PointDto> of = Pair.of(currentPoint, nextPoint);
+                    return Pair.of(of, roadMap.get(of).getComplexWeight());
+                })
+                .collect(toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+
         final Map<Pair<PointDto, PointDto>, Double> possibleWays =
                 antWayDto.getRoadMap().entrySet().stream()
                         // поиск путей
@@ -93,6 +104,8 @@ public class PairCalcChanceServiceImpl implements CalcChanceService {
                         // пупутно суммирую все веса
 //                        .peek(q -> sumForCalcChance[0] = sumForCalcChance[0] + q.getValue())
                         .collect(toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+
         sumForCalcChance = possibleWays.values().stream().flatMapToDouble(DoubleStream::of).sum();
 
         final double random = random();
@@ -110,4 +123,5 @@ public class PairCalcChanceServiceImpl implements CalcChanceService {
         // если сле точка вычислена(была последней), то вернем ее, иначе едем в банк
         return lastPoint != null ? lastPoint : Pair.of(antWayDto.getCurrentPoint(), antWayDto.getBankPoint());
     }
+
 }
