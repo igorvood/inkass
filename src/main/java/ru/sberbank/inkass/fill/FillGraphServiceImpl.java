@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static ru.sberbank.inkass.Application.*;
+import static ru.sberbank.inkass.tune.Const.*;
 
 public class FillGraphServiceImpl implements FillGraphService {
 

@@ -13,8 +13,8 @@ import java.util.stream.DoubleStream;
 import static com.sun.org.apache.xalan.internal.lib.ExsltMath.random;
 import static java.util.stream.Collectors.toMap;
 import static java.util.stream.Collectors.toSet;
-import static ru.sberbank.inkass.Application.MAX_MONEY_IN_ANT;
-import static ru.sberbank.inkass.Application.WORKING_DAY_LENGTH;
+import static ru.sberbank.inkass.tune.Const.MAX_MONEY_IN_ANT;
+import static ru.sberbank.inkass.tune.Const.WORKING_DAY_LENGTH;
 
 public class CalcChanceServiceImpl implements CalcChanceService {
 

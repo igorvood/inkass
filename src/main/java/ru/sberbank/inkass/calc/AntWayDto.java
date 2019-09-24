@@ -28,6 +28,7 @@ public class AntWayDto {
     private PointDto currentPoint;
     private PointDto bankPoint;
     private List<PointDto> way;
+    private List<Pair<PointDto, PointDto>> wayPair;
     private Set<PointDto> notVisitedPoint;
     private Map<Pair<PointDto, PointDto>, WayInfoDto> roadMap;
 
@@ -49,6 +50,7 @@ public class AntWayDto {
                         .filter(pointDto -> !pointDto.isBase())
                         .collect(Collectors.toSet());
         this.way = new ArrayList<>();
+        this.wayPair = new ArrayList<>();
         this.way.add(currentPoint);
         this.roadMap = roadMap;
 /*                roadMap.entrySet().stream()
