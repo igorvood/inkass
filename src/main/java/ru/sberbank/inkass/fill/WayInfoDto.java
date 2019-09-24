@@ -17,7 +17,13 @@ public class WayInfoDto {
         return 1 / timeInWay;
     }
 
-    public double getPheromone() {
+    public final double getPheromone() {
         return pow(pheromone, 1);
     }
+
+    public final double getComplexWeight() {
+        return getWeightWay() * getPheromone();
+    }
+
+
 }

@@ -38,6 +38,18 @@
             <version>${lombok.version}</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/one.util/streamex -->
+        <dependency>
+            <groupId>one.util</groupId>
+            <artifactId>streamex</artifactId>
+            <version>0.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+
+
     </dependencies>
 
     <build>
