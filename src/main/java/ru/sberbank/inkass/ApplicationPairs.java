@@ -1,17 +1,20 @@
 package ru.sberbank.inkass;
 
-import org.apache.commons.lang3.tuple.Pair;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import org.apache.commons.lang3.tuple.MutablePair;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.integration.config.EnableIntegration;
+import ru.sberbank.infasrtucture.FileService;
 import ru.sberbank.inkass.calc.AntWayDto;
 import ru.sberbank.inkass.calc.CalcChanceService;
 import ru.sberbank.inkass.calc.PairCalcChanceServiceImpl;
 import ru.sberbank.inkass.dto.PointDto;
 import ru.sberbank.inkass.fill.FillGraphService;
 import ru.sberbank.inkass.fill.FillGraphServiceImpl;
-import ru.sberbank.inkass.fill.WayInfoDto;
+import ru.sberbank.inkass.fill.GraphDto;
 
 import java.util.Date;
 import java.util.DoubleSummaryStatistics;
@@ -33,8 +36,21 @@ public class ApplicationPairs {
 
     public static void main(String[] args) {
 
+        final Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        GraphDto fill;
+//--------------------------------------
         FillGraphService fillGraphService = new FillGraphServiceImpl();
-        final Map<Pair<PointDto, PointDto>, WayInfoDto> fill = fillGraphService.fill(GRAPH_SIZE);
+        fill = fillGraphService.fill(GRAPH_SIZE);
+
+
+        final String s = gson.toJson(fill);
+        FileService.write("outGraph.gson", s);
+//        ------------------------------------
+
+/*
+        final String read = FileService.read("outGraph.gson");
+        fill = gson.fromJson(read, GraphDto.class);
+*/
 
         final long timeBeg = new Date().getTime();
 
@@ -43,15 +59,15 @@ public class ApplicationPairs {
                 .peek(value -> LOGGER.debug("Day num " + value))
                 .forEach(value -> {
 
-                    final Map<Pair<PointDto, PointDto>, DoubleSummaryStatistics> collect = IntStream.range(0, ANT_COUNT)
+                    final Map<MutablePair<PointDto, PointDto>, DoubleSummaryStatistics> collect = IntStream.range(0, ANT_COUNT)
                             .parallel()
-                            .mapToObj(i -> new AntWayDto(fill))
+                            .mapToObj(i -> new AntWayDto(fill.getInfoDtoTreeMap()))
                             .map(q -> calcChanceService.runOneAnt(q))
 
-                            .flatMap((Function<AntWayDto, Stream<Pair<Pair<PointDto, PointDto>, Double>>>) antWayDto ->
+                            .flatMap((Function<AntWayDto, Stream<MutablePair<MutablePair<PointDto, PointDto>, Double>>>) antWayDto ->
                                     antWayDto.getWayPair().stream()
-                                            .map(q -> Pair.of(q, antWayDto.getTotalMoney())))
-                            .collect(groupingBy(Pair::getLeft, mapping(Pair::getRight, summarizingDouble(value1 -> value1))));
+                                            .map(q -> new MutablePair(q, antWayDto.getTotalMoney())))
+                            .collect(groupingBy(MutablePair::getLeft, mapping(MutablePair::getRight, summarizingDouble(value1 -> value1))));
 
 
 

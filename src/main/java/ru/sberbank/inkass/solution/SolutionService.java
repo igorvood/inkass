@@ -1,6 +1,6 @@
 package ru.sberbank.inkass.solution;
 
-import org.apache.commons.lang3.tuple.Pair;
+import org.apache.commons.lang3.tuple.MutablePair;
 import ru.sberbank.inkass.dto.PointDto;
 
 import java.util.*;
@@ -26,7 +26,7 @@ public class SolutionService {
         return res;
     }
 
-    private void addNewLvl(Map<PointDto, Pair<Double, Double>> wayOtherPoints, List<SolutionDto> res) {
+    private void addNewLvl(Map<PointDto, MutablePair<Double, Double>> wayOtherPoints, List<SolutionDto> res) {
 
         //тут надо сделать, чтобы при превышении лимита последней точкой становился банк и этот путь завершался
         //этот метод еще не разрабатывался

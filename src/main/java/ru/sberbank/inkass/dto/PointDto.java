@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @Data
 @Builder
-public class PointDto {
+public class PointDto implements Comparable<PointDto> {
     private final String name;
     //    время инкассации
     private final double timeInPoint;
@@ -37,13 +37,18 @@ public class PointDto {
         return Objects.hash(name, timeInPoint, sum, isBase);
     }
 
+//    @Override
+//    public String toString() {
+//        return "PointDto{" +
+//                "name='" + name + '\'' +
+//                ", timeInPoint=" + timeInPoint +
+//                ", sum=" + sum +
+//                ", isBase=" + isBase +
+//                "}";
+//    }
+
     @Override
-    public String toString() {
-        return "PointDto{" +
-                "name='" + name + '\'' +
-                ", timeInPoint=" + timeInPoint +
-                ", sum=" + sum +
-                ", isBase=" + isBase +
-                "}";
+    public int compareTo(PointDto o) {
+        return this.name.compareTo(o.name);
     }
 }
