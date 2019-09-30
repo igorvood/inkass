@@ -1,0 +1,221 @@
+C:\Java\jdk1.8.0_211\bin\java.exe -XX:TieredStopAtLevel=1 -noverify -Dspring.output.ansi.enabled=always -Dcom.sun.management.jmxremote -Dspring.liveBeansView.mbeanDomain -Dspring.application.admin.enabled=true "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2019.1\lib\idea_rt.jar=55025:C:\Program Files\JetBrains\IntelliJ IDEA 2019.1\bin" -Dfile.encoding=UTF-8 -classpath C:\Java\jdk1.8.0_211\jre\lib\charsets.jar;C:\Java\jdk1.8.0_211\jre\lib\deploy.jar;C:\Java\jdk1.8.0_211\jre\lib\ext\access-bridge-64.jar;C:\Java\jdk1.8.0_211\jre\lib\ext\cldrdata.jar;C:\Java\jdk1.8.0_211\jre\lib\ext\dnsns.jar;C:\Java\jdk1.8.0_211\jre\lib\ext\jaccess.jar;C:\Java\jdk1.8.0_211\jre\lib\ext\jfxrt.jar;C:\Java\jdk1.8.0_211\jre\lib\ext\localedata.jar;C:\Java\jdk1.8.0_211\jre\lib\ext\nashorn.jar;C:\Java\jdk1.8.0_211\jre\lib\ext\sunec.jar;C:\Java\jdk1.8.0_211\jre\lib\ext\sunjce_provider.jar;C:\Java\jdk1.8.0_211\jre\lib\ext\sunmscapi.jar;C:\Java\jdk1.8.0_211\jre\lib\ext\sunpkcs11.jar;C:\Java\jdk1.8.0_211\jre\lib\ext\zipfs.jar;C:\Java\jdk1.8.0_211\jre\lib\javaws.jar;C:\Java\jdk1.8.0_211\jre\lib\jce.jar;C:\Java\jdk1.8.0_211\jre\lib\jfr.jar;C:\Java\jdk1.8.0_211\jre\lib\jfxswt.jar;C:\Java\jdk1.8.0_211\jre\lib\jsse.jar;C:\Java\jdk1.8.0_211\jre\lib\management-agent.jar;C:\Java\jdk1.8.0_211\jre\lib\plugin.jar;C:\Java\jdk1.8.0_211\jre\lib\resources.jar;C:\Java\jdk1.8.0_211\jre\lib\rt.jar;C:\_developer\java\Inkass\target\classes;C:\Users\tora\.m2\repository\org\springframework\boot\spring-boot-starter-integration\2.1.8.RELEASE\spring-boot-starter-integration-2.1.8.RELEASE.jar;C:\Users\tora\.m2\repository\org\springframework\boot\spring-boot-starter-aop\2.1.8.RELEASE\spring-boot-starter-aop-2.1.8.RELEASE.jar;C:\Users\tora\.m2\repository\org\springframework\boot\spring-boot-starter\2.1.8.RELEASE\spring-boot-starter-2.1.8.RELEASE.jar;C:\Users\tora\.m2\repository\org\springframework\boot\spring-boot\2.1.8.RELEASE\spring-boot-2.1.8.RELEASE.jar;C:\Users\tora\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\2.1.8.RELEASE\spring-boot-autoconfigure-2.1.8.RELEASE.jar;C:\Users\tora\.m2\repository\org\springframework\boot\spring-boot-starter-logging\2.1.8.RELEASE\spring-boot-starter-logging-2.1.8.RELEASE.jar;C:\Users\tora\.m2\repository\ch\qos\logback\logback-classic\1.2.3\logback-classic-1.2.3.jar;C:\Users\tora\.m2\repository\ch\qos\logback\logback-core\1.2.3\logback-core-1.2.3.jar;C:\Users\tora\.m2\repository\org\slf4j\slf4j-api\1.7.28\slf4j-api-1.7.28.jar;C:\Users\tora\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.11.2\log4j-to-slf4j-2.11.2.jar;C:\Users\tora\.m2\repository\org\apache\logging\log4j\log4j-api\2.11.2\log4j-api-2.11.2.jar;C:\Users\tora\.m2\repository\org\slf4j\jul-to-slf4j\1.7.28\jul-to-slf4j-1.7.28.jar;C:\Users\tora\.m2\repository\javax\annotation\javax.annotation-api\1.3.2\javax.annotation-api-1.3.2.jar;C:\Users\tora\.m2\repository\org\yaml\snakeyaml\1.23\snakeyaml-1.23.jar;C:\Users\tora\.m2\repository\org\springframework\spring-aop\5.1.9.RELEASE\spring-aop-5.1.9.RELEASE.jar;C:\Users\tora\.m2\repository\org\springframework\spring-beans\5.1.9.RELEASE\spring-beans-5.1.9.RELEASE.jar;C:\Users\tora\.m2\repository\org\aspectj\aspectjweaver\1.9.4\aspectjweaver-1.9.4.jar;C:\Users\tora\.m2\repository\org\springframework\integration\spring-integration-core\5.1.7.RELEASE\spring-integration-core-5.1.7.RELEASE.jar;C:\Users\tora\.m2\repository\org\springframework\spring-core\5.1.9.RELEASE\spring-core-5.1.9.RELEASE.jar;C:\Users\tora\.m2\repository\org\springframework\spring-context\5.1.9.RELEASE\spring-context-5.1.9.RELEASE.jar;C:\Users\tora\.m2\repository\org\springframework\spring-expression\5.1.9.RELEASE\spring-expression-5.1.9.RELEASE.jar;C:\Users\tora\.m2\repository\org\springframework\spring-messaging\5.1.9.RELEASE\spring-messaging-5.1.9.RELEASE.jar;C:\Users\tora\.m2\repository\org\springframework\spring-tx\5.1.9.RELEASE\spring-tx-5.1.9.RELEASE.jar;C:\Users\tora\.m2\repository\org\springframework\retry\spring-retry\1.2.4.RELEASE\spring-retry-1.2.4.RELEASE.jar;C:\Users\tora\.m2\repository\io\projectreactor\reactor-core\3.2.12.RELEASE\reactor-core-3.2.12.RELEASE.jar;C:\Users\tora\.m2\repository\org\reactivestreams\reactive-streams\1.0.3\reactive-streams-1.0.3.jar;C:\Users\tora\.m2\repository\org\springframework\spring-jcl\5.1.9.RELEASE\spring-jcl-5.1.9.RELEASE.jar;C:\Users\tora\.m2\repository\org\apache\commons\commons-lang3\3.9\commons-lang3-3.9.jar;C:\Users\tora\.m2\repository\org\projectlombok\lombok\1.16.18\lombok-1.16.18.jar;C:\Users\tora\.m2\repository\one\util\streamex\0.7.0\streamex-0.7.0.jar;C:\Users\tora\.m2\repository\junit\junit\4.12\junit-4.12.jar;C:\Users\tora\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar ru.sberbank.inkass.ApplicationPairs
+19:36:56,085 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+19:36:56,085 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.groovy]
+19:36:56,085 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [file:/C:/_developer/java/Inkass/target/classes/logback.xml]
+19:36:56,183 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+19:36:56,183 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+19:36:56,185 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [stdout]
+19:36:56,232 |-WARN in ch.qos.logback.core.ConsoleAppender[stdout] - This appender no longer admits a layout as a sub-component, set an encoder instead.
+19:36:56,232 |-WARN in ch.qos.logback.core.ConsoleAppender[stdout] - To ensure compatibility, wrapping your layout in LayoutWrappingEncoder.
+19:36:56,232 |-WARN in ch.qos.logback.core.ConsoleAppender[stdout] - See also http://logback.qos.ch/codes.html#layoutInsteadOfEncoder for details
+19:36:56,232 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.springframework] to ERROR
+19:36:56,232 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to DEBUG
+19:36:56,232 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [stdout] to Logger[ROOT]
+19:36:56,248 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+19:36:56,248 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@174d20a - Registering current configuration as safe fallback point
+
+19:36:56.263 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - ++++++++++++++++++++++++
+19:36:56.284 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 0
+19:39:48.410 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9540
+19:39:48.410 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 1
+19:42:35.071 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9526
+19:42:35.072 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 2
+19:45:21.169 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9567
+19:45:21.169 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 3
+19:48:08.741 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9558
+19:48:08.741 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 4
+19:51:00.438 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9547
+19:51:00.438 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 5
+19:54:04.175 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9559
+19:54:04.176 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 6
+19:56:57.103 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9558
+19:56:57.103 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 7
+19:59:44.680 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9548
+19:59:44.680 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 8
+20:02:32.778 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9562
+20:02:32.778 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 9
+20:05:19.604 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9528
+20:05:19.604 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 10
+20:08:07.037 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9549
+20:08:07.037 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 11
+20:10:55.544 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9566
+20:10:55.544 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 12
+20:13:42.523 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9548
+20:13:42.523 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 13
+20:16:30.523 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9527
+20:16:30.523 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 14
+20:19:20.039 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9544
+20:19:20.039 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 15
+20:22:09.152 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9555
+20:22:09.152 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 16
+20:24:31.852 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9531
+20:24:31.852 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 17
+20:26:53.488 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9514
+20:26:53.488 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 18
+20:29:15.063 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9549
+20:29:15.063 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 19
+20:31:49.829 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9555
+20:31:49.829 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 20
+20:34:33.045 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9545
+20:34:33.045 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 21
+20:37:14.814 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9528
+20:37:14.814 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 22
+20:39:55.866 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9556
+20:39:55.866 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 23
+20:42:36.315 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9565
+20:42:36.315 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 24
+20:45:16.771 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9547
+20:45:16.772 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 25
+20:47:58.873 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9561
+20:47:58.873 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 26
+20:50:40.018 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9533
+20:50:40.019 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 27
+20:53:19.215 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9550
+20:53:19.216 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 28
+20:56:04.106 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9541
+20:56:04.106 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 29
+20:58:45.474 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9547
+20:58:45.474 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 30
+21:01:27.112 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9560
+21:01:27.112 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 31
+21:04:06.843 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9546
+21:04:06.843 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 32
+21:06:47.491 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9544
+21:06:47.491 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 33
+21:09:27.915 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9559
+21:09:27.915 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 34
+21:12:09.046 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9543
+21:12:09.046 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 35
+21:14:48.454 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9532
+21:14:48.454 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 36
+21:17:28.211 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9546
+21:17:28.211 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 37
+21:20:09.134 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9533
+21:20:09.134 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 38
+21:22:50.013 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9524
+21:22:50.013 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 39
+21:25:30.349 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9532
+21:25:30.349 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 40
+21:28:23.952 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9565
+21:28:23.952 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 41
+21:31:10.606 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9557
+21:31:10.606 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 42
+21:33:50.030 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9549
+21:33:50.030 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 43
+21:36:30.324 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9575
+21:36:30.324 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 44
+21:39:11.183 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9550
+21:39:11.183 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 45
+21:41:53.926 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9555
+21:41:53.926 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 46
+21:44:36.817 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9570
+21:44:36.817 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 47
+21:47:17.161 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9548
+21:47:17.161 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 48
+21:49:58.910 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9549
+21:49:58.910 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 49
+21:52:41.243 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9557
+21:52:41.243 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 50
+21:55:24.357 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9547
+21:55:24.357 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 51
+21:57:56.998 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9522
+21:57:56.998 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 52
+22:00:22.006 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9551
+22:00:22.006 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 53
+22:02:45.987 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9558
+22:02:45.987 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 54
+22:05:10.810 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9552
+22:05:10.810 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 55
+22:07:33.227 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9563
+22:07:33.227 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 56
+22:09:51.951 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9549
+22:09:51.951 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 57
+22:12:10.077 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9547
+22:12:10.077 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 58
+22:14:28.569 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9567
+22:14:28.569 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 59
+22:16:45.967 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9554
+22:16:45.967 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 60
+22:19:03.700 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9544
+22:19:03.700 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 61
+22:21:22.302 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9540
+22:21:22.302 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 62
+22:23:40.085 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9541
+22:23:40.085 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 63
+22:25:58.141 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9539
+22:25:58.141 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 64
+22:28:17.604 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9562
+22:28:17.619 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 65
+22:30:38.457 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9554
+22:30:38.457 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 66
+22:32:56.302 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9535
+22:32:56.302 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 67
+22:35:13.577 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9570
+22:35:13.577 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 68
+22:37:47.965 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9544
+22:37:47.965 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 69
+22:40:10.212 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9550
+22:40:10.212 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 70
+22:42:27.428 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9538
+22:42:27.428 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 71
+22:44:44.578 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9543
+22:44:44.578 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 72
+22:47:01.343 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9526
+22:47:01.343 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 73
+22:49:19.305 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9565
+22:49:19.305 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 74
+22:51:37.383 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9553
+22:51:37.383 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 75
+22:53:54.798 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9553
+22:53:54.798 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 76
+22:56:15.367 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9576
+22:56:15.367 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 77
+22:58:33.347 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9526
+22:58:33.347 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 78
+23:00:51.613 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9551
+23:00:51.613 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 79
+23:03:09.429 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9541
+23:03:09.429 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 80
+23:05:26.919 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9565
+23:05:26.919 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 81
+23:07:44.779 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9555
+23:07:44.779 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 82
+23:10:03.268 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9548
+23:10:03.268 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 83
+23:12:21.521 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9557
+23:12:21.521 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 84
+23:14:39.315 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9539
+23:14:39.315 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 85
+23:16:56.701 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9570
+23:16:56.701 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 86
+23:19:14.229 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9544
+23:19:14.229 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 87
+23:21:44.000 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9576
+23:21:44.001 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 88
+23:24:14.762 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9569
+23:24:14.762 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 89
+23:26:32.235 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9544
+23:26:32.235 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 90
+23:28:49.486 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9527
+23:28:49.486 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 91
+23:31:07.365 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9559
+23:31:07.365 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 92
+23:33:25.002 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9553
+23:33:25.002 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 93
+23:35:42.864 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9540
+23:35:42.864 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 94
+23:37:59.841 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9551
+23:37:59.841 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 95
+23:40:18.142 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9553
+23:40:18.142 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 96
+23:42:35.600 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9515
+23:42:35.600 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 97
+23:44:53.071 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9548
+23:44:53.071 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 98
+23:47:10.274 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9555
+23:47:10.274 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - Day num 99
+23:49:27.991 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - 9545
+23:49:27.991 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - ++++++++++++++++++++++++
+23:49:27.991 [main] DEBUG ru.sberbank.inkass.ApplicationPairs - total time 15151.728 time per 1000 ants 1.5151728
+
+Process finished with exit code 0
