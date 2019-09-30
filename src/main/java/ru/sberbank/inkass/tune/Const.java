@@ -1,7 +1,7 @@
 package ru.sberbank.inkass.tune;
 
 public class Const {
-    public static final int GRAPH_SIZE = 30;
+    public static final int GRAPH_SIZE = 100;
 
     public static final int WORKING_DAY_COUNT = 1_00;
 
